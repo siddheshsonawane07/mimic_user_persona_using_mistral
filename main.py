@@ -36,16 +36,15 @@ def create_vector_store(processed_messages):
 
     return vector_store
 
-def generate_response(user_input, vector_store, conversation_history):
+def generate_response(user_input, vector_store, conversation_history, selected_role):
     """Generate contextual responses based on chat history"""
-
     relevant_docs = vector_store.similarity_search(user_input, k=5)
     context = "\n".join([doc.page_content for doc in relevant_docs])
 
-    system_prompt = f"""You are a chatbot that role-plays based on the style and personality shown in the following chat messages.
+    system_prompt = f"""You are a chatbot that role-plays as {selected_role} based on the style and personality shown in the following chat messages.
     Analyze these messages and respond in a similar style and tone.
 
-    Relevant context from chat history:
+    Relevant context from chat history:s
     {context}
 
     Recent conversation:
@@ -60,7 +59,11 @@ def generate_response(user_input, vector_store, conversation_history):
     llm = ChatOllama(model=local_llm, temperature=0)
     response = llm(messages)
 
-    return response.content
+    # Attribute the response to the selected role
+    response_text = f"{selected_role}: {response.content}"
+
+    return response_text
+
 
 # Streamlit UI
 def main():
@@ -100,7 +103,8 @@ def main():
             response = generate_response(
                 user_input,
                 vector_store,
-                "\n".join([f"{msg['role']}: {msg['content']}" for msg in st.session_state.conversation_history[-5:]])
+                "\n".join([f"{msg['role']}: {msg['content']}" for msg in st.session_state.conversation_history[-5:]]),
+                selected_role
             )
 
             st.session_state.conversation_history.append({"role": "assistant", "content": response})
