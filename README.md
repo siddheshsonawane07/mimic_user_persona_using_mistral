@@ -13,7 +13,6 @@
 <ol>
     <li><strong>Clone the repository</strong>:
         <pre><code>(https://github.com/siddheshsonawane07/mimic_user_persona_using_mistral)
-cd whatsapp-persona-mirror
         </code></pre>
     </li>
     <li><strong>Set up a virtual environment</strong>:
@@ -63,6 +62,7 @@ source env/bin/activate  # On Windows, use `env\Scripts\activate`
 ├── app.py                    # Main Streamlit application
 ├── README.md                 # Project documentation
 └── .env.example              # Sample environment file
+└── requirements.txt          # Requirements.txt file for downloading accurate dependencies
 </code></pre>
 
 <h2>Dependencies</h2>
