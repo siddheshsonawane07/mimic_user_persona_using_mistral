@@ -9,13 +9,10 @@
     <li><strong>Streamlined Interface</strong>: Upload chat files, select parameters, and receive style-adapted responses on the go.</li>
 </ul>
 
-<h2>Demo</h2>
-<p>To see <strong>WhatsApp Persona Mirror</strong> in action, check out this <a href="#">demo link</a> (replace with link if deployed online).</p>
-
 <h2>Installation</h2>
 <ol>
     <li><strong>Clone the repository</strong>:
-        <pre><code>git clone https://github.com/yourusername/whatsapp-persona-mirror.git
+        <pre><code>(https://github.com/siddheshsonawane07/mimic_user_persona_using_mistral)
 cd whatsapp-persona-mirror
         </code></pre>
     </li>
@@ -43,8 +40,8 @@ source env/bin/activate  # On Windows, use `env\Scripts\activate`
 <ol>
     <li><strong>Upload a WhatsApp Chat JSON File</strong>:
         <ul>
-            <li>Export your chat from WhatsApp in JSON format.</li>
-            <li>Use the <strong>file uploader</strong> in the app to load your chat.</li>
+            <li>Export your chat from WhatsApp.</li>
+            <li>Upload this file on to this website to get the required format <code>https://sidjsonifywhatsapptext.streamlit.app/</code>.</li>
         </ul>
     </li>
     <li><strong>Select Role and Tone</strong>:
@@ -64,7 +61,6 @@ source env/bin/activate  # On Windows, use `env\Scripts\activate`
 <h2>Project Structure</h2>
 <pre><code>
 ├── app.py                    # Main Streamlit application
-├── requirements.txt          # Dependencies
 ├── README.md                 # Project documentation
 └── .env.example              # Sample environment file
 </code></pre>
